@@ -19,7 +19,7 @@ keystone.init({
 	favicon: "public/favicon.ico",
 	views: "templates/views",
 	"view engine": ".hbs",
-
+	"cloudinary config": process.env.CLOUDINARY_URL,
 	"custom engine": handlebars.create({
 		layoutsDir: "templates/views/layouts",
 		partialsDir: "templates/views/partials",
@@ -46,9 +46,6 @@ keystone.set("locals", {
 	utils: keystone.utils,
 	editable: keystone.content.editable,
 });
-
-//Cloudinary
-keystone.set("cloudinary config", process.env.CLOUDINARY_URL);
 
 // Load your project's Routes
 keystone.set("routes", require("./routes"));
