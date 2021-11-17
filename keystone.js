@@ -47,6 +47,7 @@ keystone.set("locals", {
 	editable: keystone.content.editable,
 });
 
+//Cloudinary
 keystone.set("cloudinary config", process.env.CLOUDINARY_URL);
 
 // Load your project's Routes
