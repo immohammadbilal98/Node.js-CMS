@@ -19,8 +19,7 @@ keystone.init({
 	favicon: "public/favicon.ico",
 	views: "templates/views",
 	"view engine": ".hbs",
-	"cloudinary config": process.env.CLOUDINARY_URL, //CLOUDINARY..
-	"cookie secret": process.env.COOKIE_SECRET,
+	"cloudinary config": process.env.CLOUDINARY_URL, //CLOUDINARY.
 	"custom engine": handlebars.create({
 		layoutsDir: "templates/views/layouts",
 		partialsDir: "templates/views/partials",
@@ -37,6 +36,15 @@ keystone.init({
 
 // Load your project's Models
 keystone.import("models");
+
+// Your cookie secret is used to secure session cookies. This environment
+// variable was added to your Heroku config for you if you used the "Deploy to
+// Heroku" button. The secret below will be used for development.
+// You may want to set it to something private and secure.
+
+if (!keystone.get("cookie secret")) {
+	keystone.set("cookie secret", process.env.COOKIE_SECRET);
+}
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
