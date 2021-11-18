@@ -29,7 +29,7 @@ keystone.init({
 	}).engine,
 
 	"auto update": true,
-	session: true,
+	session: false,
 	auth: true,
 	"user model": "User",
 });
@@ -71,17 +71,14 @@ mongoose.connect(process.env.MONGO_URI, {
 
 //
 
-var cookieSession = require("cookie-session");
-var express = require("express");
+// var cookieSession = require("cookie-session");
 
-var app = express();
+// keystone.session(
+// 	cookieSession({
+// 		name: "session",
+// 		keys: [process.env.COOKIE_SECRET],
 
-app.use(
-	cookieSession({
-		name: "session",
-		keys: [process.env.COOKIE_SECRET],
-
-		// Cookie Options
-		maxAge: 24 * 60 * 60 * 1000, // 24 hours
-	})
-);
+// 		// Cookie Options
+// 		maxAge: 24 * 60 * 60 * 1000, // 24 hours
+// 	})
+// );
