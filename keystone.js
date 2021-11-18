@@ -63,12 +63,12 @@ keystone.set("nav", {
 
 keystone.start();
 
-//CLOUD SERVER DATABASE
-// const mongoose = require("mongoose");
-// mongoose.connect(process.env.MONGO_URI, {
-// 	useNewUrlParser: true,
-// 	useUnifiedTopology: true,
-// });
+CLOUD SERVER DATABASE
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGO_URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
 
 //
 
@@ -83,16 +83,16 @@ keystone.start();
 // 		maxAge: 24 * 60 * 60 * 1000, // 24 hours
 // 	})
 // );
-const keystone = new Keystone({
-	adapter: new Adapter(adapterConfig),
-	secureCookies: true,
-	sessionStore: new MongoStore({ url: process.env.MONGO_URI }),
-	cookieSecret: process.env.COOKIE_SECRET,
-	// cookie: {
-	//   secure: false,
-	//   maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
-	//   sameSite: false,
-	// },
-});
+// const keystone = new Keystone({
+// 	adapter: new Adapter(adapterConfig),
+// 	secureCookies: true,
+// 	sessionStore: new MongoStore({ url: process.env.MONGO_URI }),
+// 	cookieSecret: process.env.COOKIE_SECRET,
+// 	// cookie: {
+// 	//   secure: false,
+// 	//   maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
+// 	//   sameSite: false,
+// 	// },
+// });
 
 //keystone.set('cookie secret', '----change-me-to-something-secret----');
