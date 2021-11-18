@@ -68,3 +68,20 @@ mongoose.connect(process.env.MONGO_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
+
+//
+
+var cookieSession = require("cookie-session");
+var express = require("express");
+
+var app = express();
+
+app.use(
+	cookieSession({
+		name: "session",
+		keys: [process.env.COOKIE_SECRET],
+
+		// Cookie Options
+		maxAge: 24 * 60 * 60 * 1000, // 24 hours
+	})
+);
