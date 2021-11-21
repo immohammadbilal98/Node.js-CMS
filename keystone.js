@@ -19,9 +19,10 @@ keystone.init({
 	favicon: "public/favicon.ico",
 	views: "templates/views",
 	"view engine": ".hbs",
+	"mongo": process.env.MONGO_URI,
 	"cloudinary config": process.env.CLOUDINARY_URL, //CLOUDINARY.
 	"cookie secret": process.env.COOKIE_SECRET,
-	mongo: process.env.MONGO_URI,
+
 	"custom engine": handlebars.create({
 		layoutsDir: "templates/views/layouts",
 		partialsDir: "templates/views/partials",
