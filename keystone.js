@@ -19,7 +19,6 @@ keystone.init({
 	favicon: "public/favicon.ico",
 	views: "templates/views",
 	"view engine": ".hbs",
-	"mongo": process.env.MONGO_URI,
 	"cloudinary config": process.env.CLOUDINARY_URL, //CLOUDINARY.....
 	"cookie secret": process.env.COOKIE_SECRET,
 	"custom engine": handlebars.create({
@@ -65,11 +64,11 @@ keystone.set("nav", {
 keystone.start();
 
 //CLOUD SERVER DATABASE
-// const mongoose = require("mongoose");
-// mongoose.connect(process.env.MONGO_URI, {
-// 	useNewUrlParser: true,
-// 	useUnifiedTopology: true,
-// });
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGO_URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
 
 //
 
