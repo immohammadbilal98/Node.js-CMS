@@ -19,7 +19,7 @@ keystone.init({
 	favicon: "public/favicon.ico",
 	views: "templates/views",
 	"view engine": ".hbs",
-	"cloudinary config": process.env.CLOUDINARY_URL, //CLOUDINARY.....
+	"cloudinary config": process.env.CLOUDINARY_URL, 
 	"cookie secret": process.env.COOKIE_SECRET,
 	"custom engine": handlebars.create({
 		layoutsDir: "templates/views/layouts",
@@ -27,8 +27,11 @@ keystone.init({
 		defaultLayout: "default",
 		helpers: new require("./templates/views/helpers")(),
 		extname: ".hbs",
+		runtimeOptions: {
+			allowProtoPropertiesByDefault: true,
+			allowProtoMethodsByDefault: true
+		}
 	}).engine,
-
 	"auto update": true,
 	session: true,
 	auth: true,
@@ -64,11 +67,11 @@ keystone.set("nav", {
 keystone.start();
 
 //CLOUD SERVER DATABASE
-const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGO_URI, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+// const mongoose = require("mongoose");
+// mongoose.connect(process.env.MONGO_URI, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true,
+// });
 
 //
 
@@ -95,4 +98,4 @@ mongoose.connect(process.env.MONGO_URI, {
 // 	// },
 // });
 
-//keystone.set('cookie secret', '----change-me-to-something-secret----');
+
