@@ -20,7 +20,8 @@ keystone.init({
 	views: "templates/views",
 	"view engine": ".hbs",
 	"cloudinary config": process.env.CLOUDINARY_URL, //CLOUDINARY.
-	cookieSecret: process.env.COOKIE_SECRET,
+	"cookie secret": process.env.COOKIE_SECRET,
+	mongo: process.env.MONGO_URI,
 	"custom engine": handlebars.create({
 		layoutsDir: "templates/views/layouts",
 		partialsDir: "templates/views/partials",
@@ -64,11 +65,11 @@ keystone.set("nav", {
 keystone.start();
 
 //CLOUD SERVER DATABASE
-const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGO_URI, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+// const mongoose = require("mongoose");
+// mongoose.connect(process.env.MONGO_URI, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true,
+// });
 
 //
 
